@@ -6,10 +6,14 @@
   body {
     @apply font-roboto bg-gray-50 text-gray-950;
   }
+
+  #root {
+    isolation: isolate;
+  }
 }
 
 @layer components {
   .wrapper {
-    @apply max-w-3xl mx-auto px-4;
+    @apply w-full max-w-3xl mx-auto px-4;
   }
 }

@@ -1,6 +1,12 @@
+import { Header } from '../../widgets'
+
 const Cart = () => (
-  <div>
-    <p>Cart page</p>
+  <div className="flex flex-col min-h-screen">
+    <Header />
+
+    <main className="wrapper | grow py-4">
+      <p>Cart page</p>
+    </main>
   </div>
 )
 

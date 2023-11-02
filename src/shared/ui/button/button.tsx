@@ -1,0 +1,52 @@
+import { ReactNode, ElementType, HTMLAttributes } from 'react'
+import clsx from 'clsx'
+
+interface ButtonProps extends HTMLAttributes<HTMLOrSVGElement> {
+  as?: ElementType
+  className?: string
+  children?: ReactNode
+  disabled?: boolean
+  href?: string
+  type?: string
+  variant?: 'base' | 'primary'
+  onClick?: () => void
+}
+
+const BUTTON_DEFAULT_STYLES =
+  'inline-flex items-center justify-center px-8 py-4 rounded-lg tracking-wide leading-none whitespace-nowrap select-none transition-all active:scale-95 cursor-pointer disabled:cursor-not-allowed'
+
+const buttonVarinatsStyles = (variant: string) =>
+  ({
+    base: 'bg-gray-300 text-black',
+    primary: 'bg-sky-500 text-white',
+  }[variant])
+
+export const Button = ({
+  as: Tag = 'button',
+  className,
+  children,
+  disabled,
+  href,
+  type = 'button',
+  variant = 'base',
+  onClick,
+}: ButtonProps) => {
+  const buttonType = Tag === 'button' ? type : undefined
+  const buttonHref = Tag === 'a' ? href : undefined
+
+  return (
+    <Tag
+      disabled={disabled}
+      className={clsx(
+        BUTTON_DEFAULT_STYLES,
+        buttonVarinatsStyles(variant),
+        className
+      )}
+      href={buttonHref}
+      type={buttonType}
+      onClick={onClick}
+    >
+      {children}
+    </Tag>
+  )
+}
