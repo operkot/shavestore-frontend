@@ -1,8 +1,8 @@
-import { Header } from '../../widgets'
+import { Navbar } from '../../widgets'
 
 const NotFound = () => (
   <div className="flex flex-col min-h-screen">
-    <Header />
+    <Navbar />
 
     <main className="wrapper | grow py-4">
       <p>404 | Not found</p>

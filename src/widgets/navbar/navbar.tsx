@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import { ArrowSmallLeftIcon } from '@heroicons/react/24/outline'
+
 import { ROUTES } from '../../shared/lib'
-import logoImg from './assets/logo.png'
 import { CartIndicator } from '../../entities/cart'
+import logoImg from './assets/logo.png'
 
 export const Navbar = () => {
   return (

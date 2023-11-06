@@ -1,4 +1,11 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Routing } from '../pages'
 import './app.css'
 
-export const App = () => <Routing />
+const queryClient = new QueryClient()
+
+export const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <Routing />
+  </QueryClientProvider>
+)

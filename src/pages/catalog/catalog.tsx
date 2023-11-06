@@ -1,13 +1,23 @@
 import { Navbar } from '../../widgets'
+import { ProductsGrid, useProducts } from '../../entities/product'
 
-const Catalog = () => (
-  <div className="flex flex-col min-h-screen">
-    <Navbar />
+const Catalog = () => {
+  const { products, status, hasNextPage, fetchNextPage } = useProducts()
 
-    <main className="wrapper | grow py-4">
-      <p>Catalog page</p>
-    </main>
-  </div>
-)
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+
+      <main className="wrapper | flex flex-col grow py-4">
+        <ProductsGrid
+          products={products}
+          status={status}
+          hasNextPage={hasNextPage}
+          fetchNextPage={fetchNextPage}
+        />
+      </main>
+    </div>
+  )
+}
 
 export default Catalog
