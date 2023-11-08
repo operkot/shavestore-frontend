@@ -6,9 +6,15 @@ export const fetchProducts = ({ queryKey: [_key, params], pageParam }: any) =>
     params: Object.assign(
       {},
       {
-        pagination: { page: pageParam, pageSize: 12 },
+        pagination: { page: pageParam, pageSize: 6 },
         populate: 'images',
       },
       params
     ),
+  })
+
+export const fetchProductDetails = ({ queryKey: [_key, params] }: any) =>
+  fetcher({
+    url: _key,
+    params: { populate: '*' },
   })

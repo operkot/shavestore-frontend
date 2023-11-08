@@ -1,18 +1,19 @@
-import { formatProductPrice } from '../../../../shared/lib'
+import { Link } from 'react-router-dom'
+import { ROUTES, formatProductPrice } from '../../../../shared/lib'
+import { TProductPreview } from '../..'
 
 type ProductCardProps = {
-  product: {
-    id: number
-    attributes: {
-      title: string
-      price: number
-      images: any
-    }
-  }
+  product: TProductPreview
 }
 
 export const ProductCard = ({ product }: ProductCardProps) => (
   <article className="relative flex flex-col rounded-2xl overflow-hidden bg-white">
+    <Link
+      to={`${ROUTES.DETAILS}/${product.id}`}
+      title={product.attributes.title}
+      className="absolute top-0 left-0 w-full h-full z-[2]"
+    />
+
     {/* CARD THUMB */}
     <img
       src={`http://localhost:1337${product.attributes.images.data[0].attributes.url}`}
@@ -26,7 +27,7 @@ export const ProductCard = ({ product }: ProductCardProps) => (
         {product.attributes.title}
       </h2>
 
-      <small className="text-sm font-semibold leading-tight text-primary-0">
+      <small className="text-sm font-semibold leading-tight text-sky-500">
         {formatProductPrice(product.attributes.price)}
       </small>
     </div>

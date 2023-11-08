@@ -1,13 +1,25 @@
+import { useParams } from 'react-router-dom'
+
 import { Navbar } from '../../widgets'
+import { useProductDetails } from '../../entities/product'
 
-const Details = () => (
-  <div className="flex flex-col min-h-screen">
-    <Navbar />
+const Details = () => {
+  const { id } = useParams()
+  const { details, status } = useProductDetails(id)
 
-    <main className="wrapper | grow py-4">
-      <p>Details page</p>
-    </main>
-  </div>
-)
+  if (status === 'pending') {
+    return null
+  }
+
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+
+      <main className="wrapper | grow py-4">
+        <p>{details.attributes.title}</p>
+      </main>
+    </div>
+  )
+}
 
 export default Details
