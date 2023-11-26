@@ -18,7 +18,7 @@ export function CatalogFilter() {
 
       <Dialog isOpen={isOpen} onClose={onClose}>
         <header className="flex items-center justify-between gap-2 mb-4">
-          <h2 className="text-lg font-bold">Фильтры</h2>
+          <h2 className="text-xl font-bold">Фильтры</h2>
 
           <button type="button" onClick={onClose}>
             <XMarkIcon className="w-5 h-5" />

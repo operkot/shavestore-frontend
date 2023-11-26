@@ -8,7 +8,7 @@ interface ButtonProps extends HTMLAttributes<HTMLOrSVGElement> {
   disabled?: boolean
   href?: string
   type?: string
-  variant?: 'base' | 'primary'
+  variant?: 'base' | 'primary' | 'danger'
   onClick?: () => void
 }
 
@@ -18,7 +18,8 @@ const BUTTON_DEFAULT_STYLES =
 function buttonVarinatsStyles(variant: string) {
   return {
     base: 'bg-gray-300 text-black',
-    primary: 'bg-sky-500 text-white disabled:bg-gray-200',
+    primary: 'bg-cyan-500 text-white disabled:bg-gray-200',
+    danger: 'bg-red-500 text-white',
   }[variant]
 }
 

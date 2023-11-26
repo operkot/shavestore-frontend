@@ -6,7 +6,7 @@ function NotFound() {
       <Navbar />
 
       <main className="wrapper | flex flex-col items-center justify-center grow py-4">
-        <h1 className="text-2xl font-bold">404 | Не найдено</h1>
+        <h1 className="text-2xl text-center">404 | Страница не найдена</h1>
       </main>
     </div>
   )

@@ -29,7 +29,7 @@ function Details() {
               {details?.data?.attributes.title}
             </h1>
 
-            <div className="shrink-0 text-2xl leading-none font-bold text-sky-500">
+            <div className="shrink-0 text-2xl leading-none font-bold text-cyan-500">
               {formatProductPrice(details?.data?.attributes.price)}
             </div>
           </header>
@@ -43,7 +43,7 @@ function Details() {
         </div>
         {/* PRODUCT TOOLS */}
         <div className="sticky bottom-0 z-[5] w-full p-2 bg-white bg-opacity-80 backdrop-blur-[0.5rem]">
-          <div className="flex items-center justify-between p-2.5 rounded-2xl bg-blue-50">
+          <div className="flex items-center justify-between p-2.5 rounded-2xl bg-sky-50">
             <Button className="py-3.5 px-6">Купить</Button>
 
             <Button variant="primary" className="py-3 px-6">

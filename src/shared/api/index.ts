@@ -1,4 +1,3 @@
-// export { default } from './fetcher'
 import fetcher from './fetcher'
 
 export default {
@@ -16,6 +15,7 @@ export default {
           {
             pagination: { page: pageParam, pageSize: 6 },
             populate: 'images',
+            sort: { brand: { title: 'asc' } },
           },
           params
         ),

@@ -39,7 +39,7 @@ export function CategoriesFieldset({ name }: CategoriesFieldsetProps) {
             />
             <label
               htmlFor={category.attributes.slug}
-              className="block py-3 px-4 rounded-xl bg-sky-50 peer-checked/parent:bg-sky-500 peer-checked/parent:text-white"
+              className="block py-3 px-4 rounded-xl bg-sky-50 peer-checked/parent:bg-cyan-500 peer-checked/parent:text-white"
             >
               {category.attributes.title}
             </label>

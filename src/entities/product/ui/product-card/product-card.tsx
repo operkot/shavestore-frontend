@@ -32,9 +32,9 @@ export function ProductCard({ product }: ProductCardProps) {
           {product.attributes.title}
         </h2>
 
-        <small className="text-sm font-semibold leading-tight text-sky-500">
+        <p className="text-sm font-semibold leading-tight text-cyan-500">
           {formatProductPrice(product.attributes.price)}
-        </small>
+        </p>
       </div>
     </article>
   )

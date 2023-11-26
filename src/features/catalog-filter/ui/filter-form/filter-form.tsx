@@ -3,8 +3,8 @@ import { useSearchParams } from 'react-router-dom'
 import qs from 'qs'
 
 import { Button } from 'shared/ui'
-import { CategoriesFieldset } from '../categories-fieldset'
 import { BrandsFieldset } from '../brands-fieldset'
+import { CategoriesFieldset } from '../categories-fieldset'
 // import { PriceFieldset } from '../price-fieldset'
 import { flattenParamsObject } from 'features/catalog-filter/lib/utils'
 
@@ -37,9 +37,11 @@ export function FilterForm() {
             <BrandsFieldset name="filters.brand.id.$in" />
           </div>
 
-          <Button type="submit" variant="primary" className="w-full">
-            Приенить
-          </Button>
+          <footer className="flex flex-col gap-2">
+            <Button type="submit" variant="primary" className="w-full">
+              Приенить
+            </Button>
+          </footer>
         </Form>
       )}
     </Formik>
