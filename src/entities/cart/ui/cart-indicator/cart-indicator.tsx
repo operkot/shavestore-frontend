@@ -2,7 +2,7 @@ import { ShoppingBagIcon } from '@heroicons/react/24/outline'
 
 const amount = 0
 
-export const CartIndicator = () => {
+export function CartIndicator() {
   return (
     <div className="relative flex items-center justify-center w-9 h-9">
       {!!amount && (

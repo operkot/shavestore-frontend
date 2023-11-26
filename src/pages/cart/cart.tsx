@@ -1,13 +1,19 @@
-import { Navbar } from '../../widgets'
+import { Navbar } from 'widgets'
 
-const Cart = () => (
-  <div className="flex flex-col min-h-screen">
-    <Navbar />
+import { CartEmpty } from 'entities/cart'
 
-    <main className="wrapper | grow py-4">
-      <p>Cart page</p>
-    </main>
-  </div>
-)
+const amount = 0
+
+function Cart() {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+
+      <main className="wrapper | flex flex-col grow py-4">
+        <CartEmpty />
+      </main>
+    </div>
+  )
+}
 
 export default Cart

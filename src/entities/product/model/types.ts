@@ -1,4 +1,4 @@
-type TProductPreviewImage = {
+export type TProductPreviewImage = {
   id: number
   attributes: {
     url: string

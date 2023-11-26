@@ -15,13 +15,14 @@ interface ButtonProps extends HTMLAttributes<HTMLOrSVGElement> {
 const BUTTON_DEFAULT_STYLES =
   'inline-flex items-center justify-center px-8 py-4 rounded-lg tracking-wide leading-none whitespace-nowrap select-none transition-all active:scale-95 cursor-pointer disabled:cursor-not-allowed'
 
-const buttonVarinatsStyles = (variant: string) =>
-  ({
+function buttonVarinatsStyles(variant: string) {
+  return {
     base: 'bg-gray-300 text-black',
-    primary: 'bg-sky-500 text-white',
-  }[variant])
+    primary: 'bg-sky-500 text-white disabled:bg-gray-200',
+  }[variant]
+}
 
-export const Button = ({
+export function Button({
   as: Tag = 'button',
   className,
   children,
@@ -30,7 +31,7 @@ export const Button = ({
   type = 'button',
   variant = 'base',
   onClick,
-}: ButtonProps) => {
+}: ButtonProps) {
   const buttonType = Tag === 'button' ? type : undefined
   const buttonHref = Tag === 'a' ? href : undefined
 

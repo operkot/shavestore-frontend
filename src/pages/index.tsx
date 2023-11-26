@@ -9,15 +9,17 @@ const Catalog = lazy(() => import('./catalog'))
 const Details = lazy(() => import('./details'))
 const NotFound = lazy(() => import('./not-found'))
 
-export const Routing = () => (
-  <BrowserRouter>
-    <Suspense fallback={<PagePreloader />}>
-      <Routes>
-        <Route path={ROUTES.HOME} element={<Catalog />} />
-        <Route path={ROUTES.CART} element={<Cart />} />
-        <Route path={ROUTES.DETAILS + '/:id'} element={<Details />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Suspense>
-  </BrowserRouter>
-)
+export function Routing() {
+  return (
+    <BrowserRouter>
+      <Suspense fallback={<PagePreloader />}>
+        <Routes>
+          <Route path={ROUTES.HOME} element={<Catalog />} />
+          <Route path={ROUTES.CART} element={<Cart />} />
+          <Route path={ROUTES.DETAILS + '/:id'} element={<Details />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
+  )
+}

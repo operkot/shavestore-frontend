@@ -1,30 +1,48 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { useInfiniteQuery } from '@tanstack/react-query'
-import { fetchProducts } from '../api'
+import qs from 'qs'
 
-export const useProducts = () => {
+import api from 'shared/api'
+
+export function useProducts() {
+  const [searchParams] = useSearchParams()
   const [_params, _setParams] = useState({})
 
-  const { data, status, error, fetchNextPage, hasNextPage } = useInfiniteQuery({
+  const {
+    data,
+    error,
+    isFetching,
+    isFetchingNextPage,
+    fetchNextPage,
+    hasNextPage,
+  } = useInfiniteQuery({
     queryKey: ['products', _params],
-    queryFn: fetchProducts,
+    queryFn: api.products.all,
     initialPageParam: 1,
     getNextPageParam: lastPage =>
       lastPage.meta.pagination.page < lastPage.meta.pagination.pageCount
         ? lastPage.meta.pagination.page + 1
         : undefined,
+    refetchOnWindowFocus: false,
+    staleTime: 300000,
   })
 
-  const flatternPages = data?.pages.flatMap(page => page.data) ?? []
+  useEffect(() => {
+    _setParams(qs.parse(searchParams.toString()))
+  }, [searchParams])
 
-  const setQueryParams = (params: any) => _setParams(params)
+  const flatternPages = data?.pages.flatMap(page => page.data) ?? []
+  const isFetchingInitialData = isFetching && !isFetchingNextPage
 
   return {
     products: flatternPages,
-    status,
     error,
+    isFetching,
+    isFetchingNextPage,
+    isFetchingInitialData,
     hasNextPage,
     fetchNextPage,
-    setQueryParams,
+    setQueryParams: _setParams,
   }
 }

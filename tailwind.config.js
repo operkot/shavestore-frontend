@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       gridTemplateColumns: {
-        products: 'repeat(auto-fill, minmax(160px, 1fr))',
+        catalog: 'repeat(auto-fill, minmax(160px, 1fr))',
       },
       fontFamily: {
         roboto: 'Roboto, sans-serif',

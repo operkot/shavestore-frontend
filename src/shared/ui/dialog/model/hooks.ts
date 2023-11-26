@@ -1,13 +1,19 @@
 import { useState } from 'react'
 
-export const useDialog = ({ initialOpen = false } = {}) => {
+export function useDialog({ initialOpen = false } = {}) {
   const [isOpen, setIsOpen] = useState(initialOpen)
 
-  const onOpen = () => setIsOpen(true)
+  function onOpen() {
+    setIsOpen(true)
+  }
 
-  const onClose = () => setIsOpen(false)
+  function onClose() {
+    setIsOpen(false)
+  }
 
-  const onToggle = () => setIsOpen(!isOpen)
+  function onToggle() {
+    setIsOpen(prev => !prev)
+  }
 
   return { onOpen, onClose, isOpen, onToggle }
 }

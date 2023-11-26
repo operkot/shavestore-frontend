@@ -1,20 +1,20 @@
-import { Navbar } from '../../widgets'
-import { ProductsGrid, useProducts } from '../../entities/product'
+import { Navbar } from 'widgets'
+import { ProductsGrid } from 'entities/product'
+import { CatalogSearch } from 'features/catalog-search'
+import { CatalogFilter } from 'features/catalog-filter'
 
-const Catalog = () => {
-  const { products, status, hasNextPage, fetchNextPage } = useProducts()
-
+function Catalog() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
 
-      <main className="wrapper | flex flex-col grow py-4">
-        <ProductsGrid
-          products={products}
-          status={status}
-          hasNextPage={hasNextPage}
-          fetchNextPage={fetchNextPage}
-        />
+      <main className="wrapper | grow py-4">
+        <div className="flex items-center gap-2.5 shadow-panel mb-6 p-3 rounded-2xl bg-gray-50">
+          <CatalogSearch />
+          <CatalogFilter />
+        </div>
+
+        <ProductsGrid />
       </main>
     </div>
   )
