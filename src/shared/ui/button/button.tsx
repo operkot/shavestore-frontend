@@ -19,7 +19,7 @@ function buttonVarinatsStyles(variant: string) {
   return {
     base: 'bg-gray-300 text-black',
     primary: 'bg-cyan-500 text-white disabled:bg-gray-200',
-    danger: 'bg-red-500 text-white',
+    danger: 'bg-red-500 text-white disabled:bg-gray-200',
   }[variant]
 }
 

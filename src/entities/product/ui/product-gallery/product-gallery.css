@@ -1,0 +1,11 @@
+#root {
+  --swiper-pagination-bullet-horizontal-gap: 2px;
+}
+
+.swiper-pagination-bullet {
+  @apply transition-all;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-cyan-500 w-3.5 rounded-md;
+}

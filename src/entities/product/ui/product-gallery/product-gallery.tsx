@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
+import './product-gallery.css'
 import { TProductPreviewImage } from 'entities/product'
 
 type TProps = {

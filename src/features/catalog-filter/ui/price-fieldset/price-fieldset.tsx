@@ -14,7 +14,7 @@ export function PriceFieldset({ name }: PriceFieldsetProps) {
           <label className="text-sm">От</label>
           <Field
             type="number"
-            name={`${name}.0`}
+            name={`${name}[0]`}
             className="block w-full border border-gray-400 rounded-md p-1 text-sm"
           />
         </div>
@@ -22,7 +22,7 @@ export function PriceFieldset({ name }: PriceFieldsetProps) {
           <label className="text-sm">До</label>
           <Field
             type="number"
-            name={`${name}.1`}
+            name={`${name}[1]`}
             className="block w-full border border-gray-400 rounded-md p-1 text-sm"
           />
         </div>

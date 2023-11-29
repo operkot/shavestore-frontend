@@ -25,7 +25,7 @@ export function CatalogFilter() {
           </button>
         </header>
 
-        <FilterForm />
+        <FilterForm onClose={onClose} />
       </Dialog>
     </Fragment>
   )

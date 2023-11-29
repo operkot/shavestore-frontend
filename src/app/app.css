@@ -46,4 +46,8 @@
     animation-iteration-count: infinite;
     animation-name: swing;
   }
+
+  .cms blockquote {
+    @apply p-4 rounded-lg bg-sky-50;
+  }
 }

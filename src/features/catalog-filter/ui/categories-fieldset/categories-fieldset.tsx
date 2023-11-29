@@ -35,11 +35,11 @@ export function CategoriesFieldset({ name }: CategoriesFieldsetProps) {
               id={category.attributes.slug}
               name={name}
               value={category.id.toString()}
-              className="appearance-none absolute peer/parent"
+              className="appearance-none absolute peer"
             />
             <label
               htmlFor={category.attributes.slug}
-              className="block py-3 px-4 rounded-xl bg-sky-50 peer-checked/parent:bg-cyan-500 peer-checked/parent:text-white"
+              className="block py-3 px-4 rounded-xl bg-sky-50 peer-checked:bg-cyan-500 peer-checked:text-white"
             >
               {category.attributes.title}
             </label>
