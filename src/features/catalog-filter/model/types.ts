@@ -1,14 +1,9 @@
 export type TBrand = {
   id: string | number
-  attributes: {
-    title: string
-  }
+  name: string
 }
 
 export type TCategory = {
   id: string
-  attributes: {
-    title: string
-    slug: string
-  }
+  name: string
 }

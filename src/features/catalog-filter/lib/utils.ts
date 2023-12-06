@@ -5,6 +5,8 @@ export const flattenParamsObject = (obj: any, parentKey?: string) => {
     const value = obj[key]
     const _key = parentKey ? parentKey + '[' + key + ']' : key
 
+    if (!value || value === 0 || value === '') return
+
     if (typeof value === 'object') {
       result = { ...result, ...flattenParamsObject(value, _key) }
     } else {

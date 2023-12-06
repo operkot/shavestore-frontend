@@ -25,7 +25,7 @@ export function useProducts() {
         ? lastPage.meta.pagination.page + 1
         : undefined,
     refetchOnWindowFocus: false,
-    staleTime: 300000,
+    staleTime: Infinity,
   })
 
   useEffect(() => {

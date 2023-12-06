@@ -21,9 +21,9 @@ export function ProductGallery({ images }: TProps) {
   return (
     <Swiper {...SWIPER_OPTIONS} className="bg-white">
       {images.map((image: TProductPreviewImage) => (
-        <SwiperSlide key={image.attributes.url}>
+        <SwiperSlide key={image.url}>
           <img
-            src={import.meta.env.VITE_API_URL + image.attributes.url}
+            src={import.meta.env.VITE_API_URL + image.url}
             alt=""
             className="w-full aspect-square object-cover object-center"
           />

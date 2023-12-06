@@ -1,5 +1,7 @@
+import { useMemo } from 'react'
 import { Formik, Form } from 'formik'
 import { useSearchParams } from 'react-router-dom'
+import * as R from 'ramda'
 import qs from 'qs'
 
 import { Button } from 'shared/ui'
@@ -8,8 +10,18 @@ import { CategoriesFieldset } from '../categories-fieldset'
 import { PriceFieldset } from '../price-fieldset'
 import { flattenParamsObject } from 'features/catalog-filter/lib/utils'
 
+import { BASE_FORM_VALUSE } from './lib/consts'
+import { validationSchema } from './lib/schema'
+import { prepareInitialFormValues } from './lib/utils'
+
 export function FilterForm({ onClose }: any) {
   const [searchParams, setSearchParams] = useSearchParams()
+  const initialValues = useMemo(() => {
+    return prepareInitialFormValues(
+      BASE_FORM_VALUSE,
+      qs.parse(searchParams.toString())
+    )
+  }, [searchParams])
 
   function onSubmit(data: any) {
     const preparedData = flattenParamsObject(data)
@@ -20,10 +32,11 @@ export function FilterForm({ onClose }: any) {
 
   return (
     <Formik
-      initialValues={qs.parse(searchParams.toString())}
+      initialValues={initialValues}
+      validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      {({ resetForm }) => (
+      {({ dirty, values, resetForm }) => (
         <Form>
           <div className="grow overflow-auto mb-4 max-h-[65vh]">
             <PriceFieldset name="filters.price.$between" />
@@ -32,15 +45,26 @@ export function FilterForm({ onClose }: any) {
           </div>
 
           <footer className="flex flex-col gap-2">
-            {/* <Button
+            {!R.equals(values, BASE_FORM_VALUSE) && (
+              <Button
+                type="button"
+                variant="danger"
+                className="w-full"
+                onClick={() => {
+                  resetForm({ values: BASE_FORM_VALUSE })
+                  setSearchParams({})
+                }}
+              >
+                Сбросить фильтры
+              </Button>
+            )}
+
+            <Button
               type="submit"
-              variant="danger"
+              variant="primary"
               className="w-full"
-              onClick={() => resetForm({ values: {} })}
+              disabled={!dirty}
             >
-              Сбросить фильтры
-            </Button> */}
-            <Button type="submit" variant="primary" className="w-full">
               Приенить фильтры
             </Button>
           </footer>

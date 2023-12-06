@@ -2,7 +2,7 @@ import fetcher from './fetcher'
 
 export default {
   brands: {
-    all: () => fetcher({ url: '/brands' }),
+    all: () => fetcher({ url: '/brands', params: { sort: { name: 'asc' } } }),
   },
   categories: {
     all: () => fetcher({ url: '/categories' }),
@@ -15,7 +15,7 @@ export default {
           {
             pagination: { page: pageParam, pageSize: 6 },
             populate: 'images',
-            sort: { brand: { title: 'asc' } },
+            // sort: { brand: { title: 'asc' } },
           },
           params
         ),

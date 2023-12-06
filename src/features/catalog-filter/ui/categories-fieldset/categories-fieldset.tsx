@@ -13,14 +13,14 @@ export function CategoriesFieldset({ name }: CategoriesFieldsetProps) {
   const { data: categories, isLoading } = useQuery({
     queryKey: ['categories'],
     queryFn: api.categories.all,
-    staleTime: 300000,
+    staleTime: Infinity,
   })
 
   if (!isLoading && !categories?.data) return null
 
   return (
-    <fieldset className="mb-6 last:mb-0">
-      <legend className="mb-2 font-semibold">Категории:</legend>
+    <fieldset className="mb-4 last:mb-0">
+      <legend className="mb-1.5 font-semibold">Категории:</legend>
 
       {isLoading && <CategoriesSkeleton />}
 
@@ -32,16 +32,16 @@ export function CategoriesFieldset({ name }: CategoriesFieldsetProps) {
           >
             <Field
               type="checkbox"
-              id={category.attributes.slug}
+              id={category.id}
               name={name}
               value={category.id.toString()}
               className="appearance-none absolute peer"
             />
             <label
-              htmlFor={category.attributes.slug}
+              htmlFor={category.id}
               className="block py-3 px-4 rounded-xl bg-sky-50 peer-checked:bg-cyan-500 peer-checked:text-white"
             >
-              {category.attributes.title}
+              {category.name}
             </label>
           </div>
         ))}

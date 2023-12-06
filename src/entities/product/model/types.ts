@@ -1,48 +1,35 @@
 export type TProductPreviewImage = {
   id: number
-  attributes: {
-    url: string
-  }
+  url: string
 }
 
 type TproductBrand = {
-  data: {
-    id: number
-    attributes: {
-      title: string
-    }
-  }
+  id: number
+  name: string
 }
 
 type TproductCategory = {
-  data: {
-    id: number
-    attributes: {
-      title: string
-    }
-  }
+  id: number
+  name: string
+}
+
+export type TProductAttribute = {
+  name: string
+  value: string
 }
 
 export type TProductPreview = {
   id: string | number
-  attributes: {
-    title: string
-    price: number
-    images: {
-      data: TProductPreviewImage[]
-    }
-  }
+  name: string
+  price: number
+  images: TProductPreviewImage[]
 }
 
 export type TProductDetails = {
   id: string
-  attributes: {
-    title: string
-    price: number
-    images: {
-      data: TProductPreviewImage[]
-    }
-    category: TproductCategory
-    brand: TproductBrand
-  }
+  name: string
+  price: number
+  images: TProductPreviewImage[]
+  category: TproductCategory
+  brand: TproductBrand
 }

@@ -22,11 +22,13 @@ export function Navbar() {
           <p className="sr-only">Назад</p>
         </button>
 
-        <img
-          src="/images/logo.png"
-          alt="Логотип в виде усов"
-          className="w-14 h-14"
-        />
+        <Link to={ROUTES.HOME}>
+          <img
+            src="/images/logo.png"
+            alt="Логотип в виде усов"
+            className="w-14 h-14"
+          />
+        </Link>
 
         <Link to={ROUTES.CART}>
           <CartIndicator />

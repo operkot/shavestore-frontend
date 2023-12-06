@@ -1,5 +1,5 @@
 import { ReactNode, ElementType, HTMLAttributes } from 'react'
-import clsx from 'clsx'
+import { cn } from 'shared/lib'
 
 interface ButtonProps extends HTMLAttributes<HTMLOrSVGElement> {
   as?: ElementType
@@ -13,7 +13,7 @@ interface ButtonProps extends HTMLAttributes<HTMLOrSVGElement> {
 }
 
 const BUTTON_DEFAULT_STYLES =
-  'inline-flex items-center justify-center px-8 py-4 rounded-lg tracking-wide leading-none whitespace-nowrap select-none transition-all active:scale-95 cursor-pointer disabled:cursor-not-allowed'
+  'inline-flex items-center justify-center px-8 py-4 rounded-lg tracking-wide leading-none whitespace-nowrap select-none transition-all cursor-pointer disabled:cursor-not-allowed'
 
 function buttonVarinatsStyles(variant: string) {
   return {
@@ -39,7 +39,7 @@ export function Button({
   return (
     <Tag
       disabled={disabled}
-      className={clsx(
+      className={cn(
         BUTTON_DEFAULT_STYLES,
         buttonVarinatsStyles(variant),
         className

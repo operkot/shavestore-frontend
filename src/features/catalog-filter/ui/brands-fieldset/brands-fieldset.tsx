@@ -13,21 +13,21 @@ export function BrandsFieldset({ name }: BrandsFieldsetProps) {
   const { data: brands, isLoading } = useQuery({
     queryKey: ['brands'],
     queryFn: api.brands.all,
-    staleTime: 300000,
+    staleTime: Infinity,
   })
 
   if (!isLoading && !brands?.data) return null
 
   return (
-    <fieldset className="mb-6 last:mb-0">
-      <legend className="mb-2 font-semibold">Бренды:</legend>
+    <fieldset className="mb-4 last:mb-0">
+      <legend className="mb-1.5 font-semibold">Бренды:</legend>
 
       {isLoading && <BrandsSkeleton />}
 
       {brands?.data.map((brand: TBrand) => (
         <label key={brand.id} className="flex items-center gap-2">
           <Field type="checkbox" name={name} value={brand.id.toString()} />
-          <p>{brand.attributes.title}</p>
+          <p>{brand.name}</p>
         </label>
       ))}
     </fieldset>

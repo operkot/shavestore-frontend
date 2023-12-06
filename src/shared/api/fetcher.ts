@@ -1,8 +1,11 @@
 import axios from 'axios'
 
-const BASE_URL = import.meta.env.VITE_API_URL
-
-const axsinstance = axios.create({ baseURL: `${BASE_URL}/api` })
+const axsinstance = axios.create({
+  baseURL: `${import.meta.env.VITE_API_URL}/api`,
+  headers: {
+    Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`,
+  },
+})
 
 export default function ({
   url = '/',

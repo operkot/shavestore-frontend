@@ -3,6 +3,13 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            lineHeight: 1.625,
+          },
+        },
+      },
       gridTemplateColumns: {
         catalog: 'repeat(auto-fill, minmax(160px, 1fr))',
       },
@@ -17,5 +24,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 }
