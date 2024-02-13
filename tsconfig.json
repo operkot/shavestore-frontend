@@ -24,6 +24,7 @@
     "baseUrl": "./src",
     "paths": {
       "app/*": ["app/*"],
+      "routes/*": ["routes/*"],
       "common/*": ["common/*"],
       "widgets/*": ["widgets/*"],
       "features/*": ["features/*"]
